@@ -26,18 +26,18 @@ namespace Linq
             getallenSet.Add(10.6);
             Console.WriteLine($"De som van de getallen in de hashset is  {getallenSet.Sum()} ...");
             // vervang "{0}" door een correcte Linq expressie
-            Console.WriteLine($"Het minimum in de hashset is  {0} ...");
-            Console.WriteLine($"De maximum in de hashset is  {0} ...");
+            Console.WriteLine($"Het minimum in de hashset is  {getallenSet.Min()} ...");
+            Console.WriteLine($"De maximum in de hashset is  {getallenSet.Max()} ...");
 
             Stack<float> getallenStack = new Stack<float>();
             getallenStack.Push(1.5F);
             getallenStack.Push(2.6F);
             getallenStack.Push(5F);
-            float somStack = getallenStack.Sum();
+            // float somStack = getallenStack.Sum();
             Console.WriteLine($"De som van de getallen op de stack is  {getallenStack.Sum()} ...");
             // vervang "{0}" door een correcte Linq expressie
-            Console.WriteLine($"Het gemiddelde van de getallen op de stack is  {0} ...");
-            Console.WriteLine($"Het aantal getallen op de stack is  {0} ...");
+            Console.WriteLine($"Het gemiddelde van de getallen op de stack is  {getallenStack.Average()} ...");
+            Console.WriteLine($"Het aantal getallen op de stack is  {getallenStack.Count()} ...");
 
             Console.WriteLine("Druk op enter om verder te gaan...");
             Console.ReadLine();
