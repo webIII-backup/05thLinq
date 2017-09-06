@@ -17,7 +17,7 @@ namespace Linq
 
             int[] results = { 12, 15, 7, 9, 10, 5, 0, 20 };
             // bereken hieronder het aantal results hoger of gelijk aan 10
-            int nrOfPasses = 0;
+            int nrOfPasses = results.Count(r => r >= 10);
             Console.WriteLine($"De resultaten bevatten {nrOfPasses} cijfers boven de helft");
             Console.WriteLine();
 
@@ -30,7 +30,7 @@ namespace Linq
             IEnumerable<string> citiesWithlongNames = cities.Where(c => c.Length > 5);
 
             // onderstaande uit commentaar halen: demo deferred execution
-            // cities[0] = "Oostende";
+            cities[0] = "Oostende";
 
             Console.WriteLine("Steden met namen langer dan 5 karakters:");
             foreach (var city in citiesWithlongNames)
@@ -56,9 +56,13 @@ namespace Linq
                                   "Charlestown", "Helsinki", "Nice", "Dublin", "San Anselmo", "San Diego", "San Mateo"
                               };
             // vul selectedCities adhv een gepaste Linq expressie
-            IEnumerable<string> selectedCities = null;
+            IEnumerable<string> selectedCities =
+                cities2.Where(c => c.StartsWith("S") && c.Length > 5).OrderByDescending(c => c.Length).ThenBy(c => c);
+
             Console.WriteLine("Steden met namen langer dan 5 karakters, en beginnend met 'S', dalend gesorteerd op lengte van de naam, dan op naam:");
             // schrijf hier de steden uit adhv een for each
+            foreach (string city in selectedCities)
+                Console.WriteLine(city);
             Console.WriteLine();
 
             Console.WriteLine("Druk op enter om verder te gaan...");
